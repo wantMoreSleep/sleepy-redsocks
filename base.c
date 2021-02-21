@@ -202,22 +202,22 @@ static int getdestaddr_pf(
 
 	memset(&nl, 0, sizeof(struct pfioc_natlook));
 	if (client->ss_family == AF_INET) {
-		nl.saddr.v4 = ((const struct sockaddr_in *)client)->sin_addr;
+		nl.saddr.v4addr = ((const struct sockaddr_in *)client)->sin_addr;
 		nl.sport = ((struct sockaddr_in *)client)->sin_port;
 	}
 	else if (client->ss_family == AF_INET6) {
-		memcpy(&nl.saddr.v6, &((const struct sockaddr_in6 *)client)->sin6_addr, sizeof(struct in6_addr));
+		memcpy(&nl.saddr.v6addr, &((const struct sockaddr_in6 *)client)->sin6_addr, sizeof(struct in6_addr));
 		nl.sport = ((struct sockaddr_in6 *)client)->sin6_port;
 	}
 	else {
 		goto fail;
 	}
 	if (bindaddr->ss_family == AF_INET) {
-		nl.daddr.v4 = ((const struct sockaddr_in *)bindaddr)->sin_addr;
+		nl.daddr.v4addr = ((const struct sockaddr_in *)bindaddr)->sin_addr;
 		nl.dport = ((struct sockaddr_in *)bindaddr)->sin_port;
 	}
 	else if (bindaddr->ss_family == AF_INET6) {
-		memcpy(&nl.daddr.v6, &((const struct sockaddr_in6 *)bindaddr)->sin6_addr, sizeof(struct in6_addr));
+		memcpy(&nl.daddr.v6addr, &((const struct sockaddr_in6 *)bindaddr)->sin6_addr, sizeof(struct in6_addr));
 		nl.dport = ((struct sockaddr_in6 *)bindaddr)->sin6_port;
 	}
 	else {
@@ -241,11 +241,11 @@ static int getdestaddr_pf(
 	destaddr->ss_family = nl.af;
 	if (nl.af == AF_INET) {
 		((struct sockaddr_in *)destaddr)->sin_port = nl.rdport;
-		((struct sockaddr_in *)destaddr)->sin_addr = nl.rdaddr.v4;
+		((struct sockaddr_in *)destaddr)->sin_addr = nl.rdaddr.v4addr;
 	}
 	else {
 		((struct sockaddr_in6 *)destaddr)->sin6_port = nl.rdport;
-		memcpy(&(((struct sockaddr_in6 *)destaddr)->sin6_addr), &nl.rdaddr.v6, sizeof(struct in6_addr));
+		memcpy(&(((struct sockaddr_in6 *)destaddr)->sin6_addr), &nl.rdaddr.v6addr, sizeof(struct in6_addr));
 	}
 	return 0;
 
