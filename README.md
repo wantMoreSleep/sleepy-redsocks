@@ -1,6 +1,6 @@
 # MOVED
 Just use Notion to do development diaries. Markdown cannot split content into
-pages which can make things nasty / unmanageable very soon.
+pages, hence can make things nasty / unmanageable very soon.
 ---
 ## Intro
 - Start Date : 20-Feb-2021
