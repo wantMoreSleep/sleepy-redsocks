@@ -1,8 +1,6 @@
-# MOVED
-Just use Notion to do development diaries. Markdown cannot split content into
-pages, hence can make things nasty / unmanageable very soon.
----
-## Intro
+# sleepy-redsocks
+Bug fixes to REDSOCKS2 to make it works on macOS 11 Big Sur.
+## Info
 - Start Date : 20-Feb-2021
 - Repo forked from : https://github.com/semigodking/redsocks 
 - Commit forked from : `1951b49b774b0aab702348d0370e26bae1c3a7df`
