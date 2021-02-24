@@ -1,4 +1,8 @@
+.DS_Store
 .idea/
+redsocks.conf
+redsocks.log
+# ------------------------------------------------------------------------------
 *.o
 config.h
 tags
